@@ -1,6 +1,8 @@
 package yaml
 
 import (
+	"io"
+
 	"github.com/MarkRosemaker/json2yaml"
 	"github.com/MarkRosemaker/yaml2json"
 	"github.com/go-json-experiment/json"
@@ -43,4 +45,19 @@ func Unmarshal(in []byte, out any, opts ...json.Options) error {
 	}
 
 	return json.Unmarshal(val, out, opts...)
+}
+
+// UnmarshalRead deserializes a Go value from an [io.Reader] according to the
+// provided unmarshal and decode options (while ignoring marshal or encode options).
+// It consumes the entirety of [io.Reader] until [io.EOF] is encountered,
+// without reporting an error for EOF. The output must be a non-nil pointer.
+// See [Unmarshal] for details about the conversion of JSON into a Go value.
+func UnmarshalRead(in io.Reader, out any, opts ...json.Options) error {
+	// read the input into a byte slice
+	b, err := io.ReadAll(in)
+	if err != nil {
+		return err
+	}
+
+	return Unmarshal(b, out, opts...)
 }
