@@ -33,6 +33,48 @@ type testStruct struct {
 	Block      string            `json:"block"`
 }
 
+var structExample = testStruct{
+	String: "Hello, World!",
+	Int:    42,
+	Float:  3.14,
+	Bool:   true,
+	Bool2:  false,
+	Null:   nil,
+	List: []string{
+		"item1",
+		"item2",
+		"item3",
+	},
+	Dictionary: map[string]string{
+		"key1": "value1",
+		"key2": "value2",
+	},
+	Nested: nested{
+		ListOfDicts: []dictionary{
+			{
+				Name:  "item1",
+				Value: 1,
+			},
+			{
+				Name:  "item2",
+				Value: 2,
+			},
+		},
+		DictOfLists: map[string][]string{
+			"key1": {
+				"item1",
+				"item2",
+			},
+			"key2": {
+				"item3",
+				"item4",
+			},
+		},
+	},
+	Block: `This is a block
+style multiline string.`,
+}
+
 type nested struct {
 	ListOfDicts []dictionary        `json:"list_of_dicts"`
 	DictOfLists map[string][]string `json:"dict_of_lists"`
@@ -44,56 +86,32 @@ type dictionary struct {
 }
 
 func TestMarshal(t *testing.T) {
-	res, err := yaml.Marshal(testStruct{
-		String: "Hello, World!",
-		Int:    42,
-		Float:  3.14,
-		Bool:   true,
-		Bool2:  false,
-		Null:   nil,
-		List: []string{
-			"item1",
-			"item2",
-			"item3",
-		},
-		Dictionary: map[string]string{
-			"key1": "value1",
-			"key2": "value2",
-		},
-		Nested: nested{
-			ListOfDicts: []dictionary{
-				{
-					Name:  "item1",
-					Value: 1,
-				},
-				{
-					Name:  "item2",
-					Value: 2,
-				},
-			},
-			DictOfLists: map[string][]string{
-				"key1": {
-					"item1",
-					"item2",
-				},
-				"key2": {
-					"item3",
-					"item4",
-				},
-			},
-		},
-		Block: `This is a block
-style multiline string.`,
-	}, json.WithMarshalers(json.NewMarshalers(
-		json.MarshalFuncV2(orderMap[string, string]),
-		json.MarshalFuncV2(orderMap[string, []string]),
-	)))
+	res, err := yaml.Marshal(structExample,
+		json.WithMarshalers(json.NewMarshalers(
+			json.MarshalFuncV2(orderMap[string, string]),
+			json.MarshalFuncV2(orderMap[string, []string]),
+		)))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	if !bytes.Equal(res, exampleYAML) {
 		t.Fatalf("got: %q, want: %q", res, exampleYAML)
+	}
+}
+
+func TestUnmarshal(t *testing.T) {
+	ex := &testStruct{}
+	if err := yaml.Unmarshal(exampleYAML, ex); err != nil {
+		t.Fatal(err)
+	}
+
+	if ex.Float != structExample.Float {
+		t.Fatalf("got: %f, want: %f", ex.Float, structExample.Float)
+	}
+
+	if ex.Int != structExample.Int {
+		t.Fatalf("got: %d, want: %d", ex.Int, structExample.Int)
 	}
 }
 
