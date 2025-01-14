@@ -3,6 +3,7 @@ package yaml2json
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"strconv"
 
 	"github.com/go-json-experiment/json/jsontext"
@@ -83,6 +84,8 @@ func encodeToJSON(enc *jsontext.Encoder, n *yaml.Node) error {
 		return enc.WriteToken(jsontext.String(n.Value))
 	case yaml.AliasNode:
 		return encodeToJSON(enc, n.Alias)
+	case 0:
+		return io.EOF
 	default:
 		return fmt.Errorf("unsupported node kind: %v", n.Kind)
 	}
