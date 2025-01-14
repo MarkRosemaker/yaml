@@ -24,9 +24,20 @@ nested:
         key2:
             - item3
             - item4
-block: |
-    This is a block
-    style multiline string.
+multi: |-
+    This text
+    has multiple
+    lines.
+block1: |4
+    This block
+    has new line before and after
+block2: |4-
+    This block
+    only has a new line before
+block3: |-
+    This block
+    only has a new line after
+text: "\n\n\nThis is text that \nstarts only after 3 new lines.\n\n\n"
 folded: |
     This is a folded style multiline string.
 quoted: 'This string contains: special characters, colons: and dashes -'

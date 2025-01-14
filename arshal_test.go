@@ -13,12 +13,8 @@ import (
 	"github.com/go-json-experiment/json/jsontext"
 )
 
-var (
-	//go:embed example.json
-	exampleJSON jsontext.Value
-	//go:embed example.yaml
-	exampleYAML []byte
-)
+//go:embed example.yaml
+var exampleYAML []byte
 
 type testStruct struct {
 	String     string            `json:"string"`
@@ -88,8 +84,8 @@ type dictionary struct {
 func TestMarshal(t *testing.T) {
 	res, err := yaml.Marshal(structExample,
 		json.WithMarshalers(json.NewMarshalers(
-			json.MarshalFuncV2(orderMap[string, string]),
-			json.MarshalFuncV2(orderMap[string, []string]),
+			json.MarshalToFunc(orderMap[string, string]),
+			json.MarshalToFunc(orderMap[string, []string]),
 		)))
 	if err != nil {
 		t.Fatal(err)
