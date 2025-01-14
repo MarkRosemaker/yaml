@@ -2,9 +2,9 @@ package yaml_test
 
 import (
 	"bytes"
+	"cmp"
 	_ "embed"
 	"maps"
-	"os"
 	"slices"
 	"testing"
 
@@ -84,34 +84,36 @@ func TestMarshal(t *testing.T) {
 		},
 		Block: `This is a block
 style multiline string.`,
-	}, json.WithMarshalers(json.NewMarshalers(json.MarshalFuncV2(
-		func(enc *jsontext.Encoder, m map[string]string, opts json.Options) error {
-
-			if err := enc.WriteToken(jsontext.ObjectStart); err != nil {
-				return err
-			}
-
-			keys := slices.Collect(maps.Keys(m))
-			slices.Sort(keys)
-
-			for _, k := range keys {
-				if err := enc.WriteToken(jsontext.String(k)); err != nil {
-					return err
-				}
-
-				if err := enc.WriteToken(jsontext.String(m[k])); err != nil {
-					return err
-				}
-			}
-
-			return enc.WriteToken(jsontext.ObjectEnd)
-		}))))
+	}, json.WithMarshalers(json.NewMarshalers(
+		json.MarshalFuncV2(orderMap[string, string]),
+		json.MarshalFuncV2(orderMap[string, []string]),
+	)))
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	if !bytes.Equal(res, exampleYAML) {
-		os.WriteFile("real.yaml", res, 0644)
 		t.Fatalf("got: %q, want: %q", res, exampleYAML)
 	}
+}
+
+func orderMap[K cmp.Ordered, V any](enc *jsontext.Encoder, m map[K]V, opts json.Options) error {
+	if err := enc.WriteToken(jsontext.ObjectStart); err != nil {
+		return err
+	}
+
+	keys := slices.Collect(maps.Keys(m))
+	slices.Sort(keys)
+
+	for _, k := range keys {
+		if err := json.MarshalEncode(enc, k, opts); err != nil {
+			return err
+		}
+
+		if err := json.MarshalEncode(enc, m[k], opts); err != nil {
+			return err
+		}
+	}
+
+	return enc.WriteToken(jsontext.ObjectEnd)
 }
