@@ -1,0 +1,14 @@
+# github.com/MarkRosemaker/json2yaml v0.0.0-20250114183759-61bdaeef5714
+## explicit; go 1.23.4
+github.com/MarkRosemaker/json2yaml
+# github.com/go-json-experiment/json v0.0.0-20241228065829-3e670832f349
+## explicit; go 1.23
+github.com/go-json-experiment/json
+github.com/go-json-experiment/json/internal
+github.com/go-json-experiment/json/internal/jsonflags
+github.com/go-json-experiment/json/internal/jsonopts
+github.com/go-json-experiment/json/internal/jsonwire
+github.com/go-json-experiment/json/jsontext
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+gopkg.in/yaml.v3
