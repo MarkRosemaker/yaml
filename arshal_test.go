@@ -4,13 +4,13 @@ import (
 	"bytes"
 	"cmp"
 	_ "embed"
+	"encoding/json/jsontext"
+	"encoding/json/v2"
 	"maps"
 	"slices"
 	"testing"
 
 	"github.com/MarkRosemaker/yaml"
-	"github.com/go-json-experiment/json"
-	"github.com/go-json-experiment/json/jsontext"
 )
 
 //go:embed example.yaml
