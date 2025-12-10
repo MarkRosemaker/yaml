@@ -83,7 +83,7 @@ type dictionary struct {
 
 func TestMarshal(t *testing.T) {
 	res, err := yaml.Marshal(structExample,
-		json.WithMarshalers(json.NewMarshalers(
+		json.WithMarshalers(json.JoinMarshalers(
 			json.MarshalToFunc(orderMap[string, string]),
 			json.MarshalToFunc(orderMap[string, []string]),
 		)))
@@ -111,8 +111,8 @@ func TestUnmarshal(t *testing.T) {
 	}
 }
 
-func orderMap[K cmp.Ordered, V any](enc *jsontext.Encoder, m map[K]V, opts json.Options) error {
-	if err := enc.WriteToken(jsontext.ObjectStart); err != nil {
+func orderMap[K cmp.Ordered, V any](enc *jsontext.Encoder, m map[K]V) error {
+	if err := enc.WriteToken(jsontext.BeginObject); err != nil {
 		return err
 	}
 
@@ -120,14 +120,14 @@ func orderMap[K cmp.Ordered, V any](enc *jsontext.Encoder, m map[K]V, opts json.
 	slices.Sort(keys)
 
 	for _, k := range keys {
-		if err := json.MarshalEncode(enc, k, opts); err != nil {
+		if err := json.MarshalEncode(enc, k); err != nil {
 			return err
 		}
 
-		if err := json.MarshalEncode(enc, m[k], opts); err != nil {
+		if err := json.MarshalEncode(enc, m[k]); err != nil {
 			return err
 		}
 	}
 
-	return enc.WriteToken(jsontext.ObjectEnd)
+	return enc.WriteToken(jsontext.EndObject)
 }
