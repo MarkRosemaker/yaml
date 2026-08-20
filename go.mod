@@ -1,6 +1,6 @@
 module github.com/MarkRosemaker/yaml
 
-go 1.23.4
+go 1.27
 
 require (
 	github.com/MarkRosemaker/json2yaml v0.0.0-20260507220148-d6cc0d01bff0
