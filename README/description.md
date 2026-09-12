@@ -1,0 +1,1 @@
+This repository provides functionality for YAML marshalling and unmarshalling similar to [JSON v2](https://pkg.go.dev/encoding/json/v2). It allows users to use the same JSON options they would use for JSON v2 to encode and decode YAML.

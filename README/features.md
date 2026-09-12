@@ -1,0 +1,3 @@
+- Marshal Go structs to YAML
+- Unmarshal YAML to Go structs
+- Support for JSON v2 options
