@@ -1,7 +1,7 @@
-# github.com/MarkRosemaker/json2yaml v0.0.0-20260916154435-cb0aabf0b506
+# github.com/MarkRosemaker/json2yaml v0.0.0-20260916154521-65df36bea2fb
 ## explicit; go 1.27
 github.com/MarkRosemaker/json2yaml
-# github.com/MarkRosemaker/yaml2json v0.0.0-20260916154435-f929751609ad
+# github.com/MarkRosemaker/yaml2json v0.0.0-20260916154521-a16ed515e70c
 ## explicit; go 1.27
 github.com/MarkRosemaker/yaml2json
 # github.com/kr/text v0.2.0
