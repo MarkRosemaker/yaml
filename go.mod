@@ -4,7 +4,7 @@ go 1.27
 
 require (
 	github.com/MarkRosemaker/json2yaml v0.0.0-20260919112308-a1b4c0dc8893
-	github.com/MarkRosemaker/yaml2json v0.0.0-20260919112308-cbb7454d758e
+	github.com/MarkRosemaker/yaml2json v0.0.0-20260920102556-6618502a7bf5
 	gopkg.in/yaml.v3 v3.0.1
 )
 
