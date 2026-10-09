@@ -1,5 +1,5 @@
-github.com/MarkRosemaker/json2yaml v0.0.0-20261004011213-3850e046f118 h1:DCh3n2UTl1iQfEiifmYPFCetkFLOnen/vVP1lsS6RGM=
-github.com/MarkRosemaker/json2yaml v0.0.0-20261004011213-3850e046f118/go.mod h1:eUwIjjooIESK1Ymw4bbMdSDF6feAblyZjxyoo5o/W6U=
+github.com/MarkRosemaker/json2yaml v0.0.0-20261009163255-8bb84916580b h1:Q9puEnX8Hk/MiNu5P3a+0YVAz58R+4wzyyBkxxJMHdQ=
+github.com/MarkRosemaker/json2yaml v0.0.0-20261009163255-8bb84916580b/go.mod h1:eUwIjjooIESK1Ymw4bbMdSDF6feAblyZjxyoo5o/W6U=
 github.com/MarkRosemaker/yaml2json v0.0.0-20261004011213-bbdd737b26f4 h1:vpzT7ZujF2f6wT+0wUrSLPAvStn4Sy5yD7m+YqtpXU4=
 github.com/MarkRosemaker/yaml2json v0.0.0-20261004011213-bbdd737b26f4/go.mod h1:DxNA9SDFrzw+RHsnxjIxjUzHy0I4+3hZg7R13u3SBvE=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
