@@ -3,8 +3,8 @@ module github.com/MarkRosemaker/yaml
 go 1.27
 
 require (
-	github.com/MarkRosemaker/json2yaml v0.0.0-20261106130503-05e8658c3d63
-	github.com/MarkRosemaker/yaml2json v0.0.0-20261106130503-6a5b8aab3119
+	github.com/MarkRosemaker/json2yaml v0.0.0-20261107140447-4f50afec4d91
+	github.com/MarkRosemaker/yaml2json v0.0.0-20261107140447-bc027eaff998
 	gopkg.in/yaml.v3 v3.0.1
 )
 
