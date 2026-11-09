@@ -1,3 +1,4 @@
 - Marshal Go structs to YAML
 - Unmarshal YAML to Go structs
 - Support for JSON v2 options
+- Strings that would read back as another type, such as `"true"` or `"42"`, are quoted, so a round trip keeps them strings
