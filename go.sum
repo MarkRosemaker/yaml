@@ -1,7 +1,7 @@
-github.com/MarkRosemaker/json2yaml v0.0.0-20261115155441-4ed6452afdbc h1:5Kyd52NVTZrw5n3JGhLAg2G5SDvEocGXj0p6TELH/wI=
-github.com/MarkRosemaker/json2yaml v0.0.0-20261115155441-4ed6452afdbc/go.mod h1:eUwIjjooIESK1Ymw4bbMdSDF6feAblyZjxyoo5o/W6U=
-github.com/MarkRosemaker/yaml2json v0.0.0-20261115155441-455cb115d85f h1:RkHc4G9TVC287DNuZBbm1lsk4OTE74a6TNaQrw6k+6E=
-github.com/MarkRosemaker/yaml2json v0.0.0-20261115155441-455cb115d85f/go.mod h1:DxNA9SDFrzw+RHsnxjIxjUzHy0I4+3hZg7R13u3SBvE=
+github.com/MarkRosemaker/json2yaml v0.0.0-20261117230222-23606eee0e4a h1:N/jahofLaSjZcO6aJtWnVi6emV4dy67MP0Hc5Os0bPY=
+github.com/MarkRosemaker/json2yaml v0.0.0-20261117230222-23606eee0e4a/go.mod h1:eUwIjjooIESK1Ymw4bbMdSDF6feAblyZjxyoo5o/W6U=
+github.com/MarkRosemaker/yaml2json v0.0.0-20261117230222-6bc69c0a66fa h1:ufwAtQKUKFAy5g/9b/HZUfHla/iWDcp4pROwkNugWA0=
+github.com/MarkRosemaker/yaml2json v0.0.0-20261117230222-6bc69c0a66fa/go.mod h1:DxNA9SDFrzw+RHsnxjIxjUzHy0I4+3hZg7R13u3SBvE=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
